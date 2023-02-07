@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Version 1.0.0 -->
+    <include file="db/changelog/version-1.0.0/schema-init.xml"/>
+
+    <!-- Version 2.0.0 -->
+    <include file="db/changelog/version-2.0.0/minifig_update.xml"/>
+
+    <!-- This changeSet shall always be executed the last -->
+    <changeSet id="repeatable" author="dev-team" runOnChange="true">
+        <sqlFile dbms="postgresql" path="db/changelog/run-on-change/minifig-report.sql"/>
+    </changeSet>
+</databaseChangeLog>
+
